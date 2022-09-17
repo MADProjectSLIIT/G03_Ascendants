@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">PetPal</string>
+
+    <string-array name= "gig_title">
+        <item>Gig Title</item>
+        <item>Gig Title</item>
+        <item>Gig Title</item>
+        <item>Gig Title</item>
+        <item>Gig Title</item>
+    </string-array>
+    <string-array name= "gig_price">
+        <item>Rs.2000</item>
+        <item>Rs.2000</item>
+        <item>Rs.2000</item>
+        <item>Rs.2000</item>
+        <item>Rs.2000</item>
+    </string-array>
+
 </resources>
