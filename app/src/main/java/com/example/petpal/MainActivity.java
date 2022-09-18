@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Intent intent1= new Intent(MainActivity.this,ProfileFavorite.class);
+        Intent intent1= new Intent(MainActivity.this,GigListingPage.class);
         startActivity(intent1);
     }
 }

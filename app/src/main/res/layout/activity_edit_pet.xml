@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddPet">
+    tools:context=".EditPet">
 
     <ScrollView
         android:id="@+id/scrollView2"
@@ -29,7 +29,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="64dp"
-                android:text="Add Pets"
+                android:text="Edit Pets"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
             <TextView
@@ -38,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:labelFor="@id/textView3"
-                android:text="What is your pet's name?" />
+                android:text="Edit name" />
 
             <EditText
                 android:id="@+id/editTextTextPersonName2"
@@ -46,9 +46,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:ems="10"
-                android:hint="Name"
                 android:inputType="textPersonName"
-                android:minHeight="48dp" />
+                android:minHeight="48dp"
+                android:text="Bruno" />
 
             <TextView
                 android:id="@+id/textView5"
@@ -56,7 +56,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:labelFor="@id/textView3"
-                android:text="What type of pet is it?" />
+                android:text="Edit Type" />
 
             <RadioGroup
                 android:layout_width="196dp"
@@ -66,12 +66,15 @@
                     android:id="@+id/radioButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:checked="true"
                     android:text="Dog" />
 
                 <RadioButton
                     android:id="@+id/radioButton2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:clickable="false"
                     android:text="Cat" />
 
                 <RadioButton
@@ -100,10 +103,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:labelFor="@id/textView3"
-                android:text="What breed is you pet?" />
+                android:text="Edit breed" />
 
             <Spinner
-                android:id="@+id/ap_breedSpinner"
+                android:id="@+id/ap_breedSpinner2"
                 android:layout_width="match_parent"
                 android:layout_height="48dp" />
 
@@ -113,10 +116,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:labelFor="@id/textView3"
-                android:text="What is the size of your pet?" />
+                android:text="Edit Size" />
 
             <Spinner
-                android:id="@+id/ap_petSize"
+                android:id="@+id/ap_petSize2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/select_pet_breed"
@@ -129,5 +132,4 @@
                 android:text="Add Pet" />
         </LinearLayout>
     </ScrollView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

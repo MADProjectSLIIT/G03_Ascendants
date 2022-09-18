@@ -13,7 +13,7 @@ public class GigListingPage extends AppCompatActivity {
     ArrayList<GigModel> gigData = new ArrayList<>();
 
 //    int[] gigImages = {R.drawable.dog_image};
-int gigImages = R.drawable.dog_image;
+int[] gigImages = {R.drawable.dog_boarding_image,R.drawable.dog_image,R.drawable.dog_image,R.drawable.dog_image,R.drawable.dog_image,R.drawable.dog_image};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +32,7 @@ int gigImages = R.drawable.dog_image;
         String[] gigPrice = getResources().getStringArray(R.array.gig_price);
 
         for (int i=0; i<gigTitles.length; i++){
-            gigData.add(new GigModel (gigTitles[i],gigPrice[i],gigImages));
+            gigData.add(new GigModel (gigTitles[i],gigPrice[i],gigImages[i]));
         }
 
     }
