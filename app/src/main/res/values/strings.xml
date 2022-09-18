@@ -3,8 +3,8 @@
 
 
     <!--   author @IT21001352 start -->
-    <!--    temp data for gig listing which will be taken from database later -->
 
+    <!--    Temporary data for gig listings(Recycler View) that will be later replaced by database -->
     <string-array name="gig_title">
         <item>Boarding services</item>
         <item>Gig Title</item>
