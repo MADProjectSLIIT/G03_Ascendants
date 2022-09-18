@@ -24,10 +24,12 @@
     <!--    this is for the add pet form -->
     <string name="select_pet_breed">Select Pet breed</string>
     <string name="rating">5</string>
+    
+<!--    gig view page -->
     <string name="Description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In et faucibus amet condimentum pharetra egestas integer purus. Odio non, integer quis posuere id interdum placerat mauris. Nulla tincidunt sed a blandit placerat. In sem suspendisse ut scelerisque cras nam sem viverra.</string>
     <string name="title_for_the_gig">Title for the gig</string>
 
-    <!--    Drop down Data-->
+    <!--    for Drop downs(spinners) Data in add pet-->
     <string-array name="dog_breeds">
         <item>Labrador Retriever</item>
         <item>Bulldog</item>
@@ -39,13 +41,15 @@
     </string-array>
 
     <string-array name="pet_sizes">
-        <item>1-5kg</item>
-        <item>5-10kg</item>
-        <item>10-20kg</item>
-        <item>20-40kg</item>
+        <item>1–5kg</item>
+        <item>5–10kg</item>
+        <item>10–20kg</item>
+        <item>20–40kg</item>
         <item>40kg+</item>
     </string-array>
 
+
+    <!--    for Drop downs(spinners) Data in add pet-->
     <string-array name="select_pet">
         <item>Bruno</item>
         <item>Lassi</item>
