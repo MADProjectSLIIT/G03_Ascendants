@@ -1,19 +1,86 @@
 <resources>
     <string name="app_name">PetPal</string>
 
-    <string-array name= "gig_title">
+
+    <!--   author @IT21001352 start -->
+    <!--    temp data for gig listing which will be taken from database later -->
+
+    <string-array name="gig_title">
         <item>Gig Title</item>
         <item>Gig Title</item>
         <item>Gig Title</item>
         <item>Gig Title</item>
         <item>Gig Title</item>
     </string-array>
-    <string-array name= "gig_price">
+    <string-array name="gig_price">
         <item>Rs.2000</item>
         <item>Rs.2000</item>
         <item>Rs.2000</item>
         <item>Rs.2000</item>
         <item>Rs.2000</item>
     </string-array>
+
+
+    <!--    this is for the add pet form -->
+    <string name="select_pet_breed">Select Pet breed</string>
+    <string name="rating">5</string>
+    <string name="Description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In et faucibus amet condimentum pharetra egestas integer purus. Odio non, integer quis posuere id interdum placerat mauris. Nulla tincidunt sed a blandit placerat. In sem suspendisse ut scelerisque cras nam sem viverra.</string>
+    <string name="title_for_the_gig">Title for the gig</string>
+
+    <!--    Drop down Data-->
+    <string-array name="dog_breeds">
+        <item>Labrador Retriever</item>
+        <item>Bulldog</item>
+        <item>Golden Retriever</item>
+        <item>German Shepherd</item>
+        <item>Poodle</item>
+        <item>Rottweiler</item>
+        <item>Boxer</item>
+    </string-array>
+
+    <string-array name="pet_sizes">
+        <item>1-5kg</item>
+        <item>5-10kg</item>
+        <item>10-20kg</item>
+        <item>20-40kg</item>
+        <item>40kg+</item>
+    </string-array>
+
+    <string-array name="select_pet">
+        <item>Bruno</item>
+        <item>Lassi</item>
+    </string-array>
+
+    <string-array name="locations">
+        <item>Dehiwala</item>
+        <item>Homagama</item>
+        <item>Kaduwela</item>
+        <item>Kesbewa</item>
+        <item>Maharagama</item>
+        <item>Moratuwa</item>
+        <item>Padukka</item>
+        <item>Avissawella</item>
+    </string-array>
+
+    <string-array name="no_of_days">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_user_pet_view_with_profile">UserPetViewWithProfile</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <!--   author @IT21001352 end -->
+
 
 </resources>
