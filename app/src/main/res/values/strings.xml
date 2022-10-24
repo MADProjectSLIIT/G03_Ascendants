@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">PetPal</string>
+    <string name="title_home">Home</string>
+    <string name="title_explore">Explore</string>
+    <string name="title_profile">Profile</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="login">Login</string>
+    <string name="create_new_account">Create New Account</string>
+    <string name="my_pets">My Pets</string>
+    <string name="add_new_pet">Add New Pet</string>
+    <string name="select_pet_breed">Select Pet breed</string>
+
+
+
+    <string-array name="dog_breeds">
+        <item>Labrador Retriever</item>
+        <item>Bulldog</item>
+        <item>Golden Retriever</item>
+        <item>German Shepherd</item>
+        <item>Poodle</item>
+        <item>Rottweiler</item>
+        <item>Boxer</item>
+    </string-array>
+
+    <string-array name="pet_sizes">
+        <item>1–5kg</item>
+        <item>5–10kg</item>
+        <item>10–20kg</item>
+        <item>20–40kg</item>
+        <item>40kg+</item>
+    </string-array>
+</resources>

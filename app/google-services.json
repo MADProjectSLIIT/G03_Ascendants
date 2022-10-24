@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1041224404261",
+    "firebase_url": "https://petpal-707f9-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "petpal-707f9",
+    "storage_bucket": "petpal-707f9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1041224404261:android:f1f28c30d68402e1665ecc",
+        "android_client_info": {
+          "package_name": "com.example.petpal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1041224404261-jgmhadfotipl2jlkiu3p9uhs4pnhqfrq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBG4X-xEqHFvtXsiqkDg4wqapS-hhNK17Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1041224404261-jgmhadfotipl2jlkiu3p9uhs4pnhqfrq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
