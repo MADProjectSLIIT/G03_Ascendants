@@ -2,24 +2,12 @@ package com.example.petpal.ui.myPets;
 
 public class Pet {
     private String name,type,breed,size;
-    private String petID;
-
-    public Pet() {
-    }
 
     public Pet(String name, String type, String breed, String size) {
         this.name = name;
         this.type = type;
         this.breed = breed;
         this.size = size;
-    }
-
-    public String getPetID() {
-        return petID;
-    }
-
-    public void setPetID(String petID) {
-        this.petID = petID;
     }
 
     public String getName() {
@@ -50,19 +38,7 @@ public class Pet {
         return size;
     }
 
-
-
     public void setSize(String size) {
         this.size = size;
-    }
-
-    @Override
-    public String toString() {
-        return "Pet{" +
-                "name='" + name + '\'' +
-                ", type='" + type + '\'' +
-                ", breed='" + breed + '\'' +
-                ", size='" + size + '\'' +
-                '}';
     }
 }

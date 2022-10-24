@@ -12,6 +12,7 @@
     <string name="select_pet_breed">Select Pet breed</string>
 
 
+
     <string-array name="dog_breeds">
         <item>Labrador Retriever</item>
         <item>Bulldog</item>
@@ -29,34 +30,4 @@
         <item>20–40kg</item>
         <item>40kg+</item>
     </string-array>
-    <string-array name="pet_gender">
-        <item>Male</item>
-        <item>Female</item>
-    </string-array>
-
-    <string-array name="traveling_distance">
-        <item>1–5km</item>
-        <item>5–10km</item>
-        <item>10–20km</item>
-        <item>20–40km</item>
-        <item>40km+</item>
-    </string-array>
-
-    <string-array name="gig_posting_locations">
-        <item>Kandy</item>
-        <item>Gampaha</item>
-        <item>Colombo</item>
-        <item>Galle</item>
-        <item>Matara</item>
-    </string-array>
-    <string name="title_activity_my_gigs">My Gigs</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
-
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    <string name="Description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In et faucibus amet condimentum pharetra egestas integer purus. Odio non, integer quis posuere id interdum placerat mauris. Nulla tincidunt sed a blandit placerat. In sem suspendisse ut scelerisque cras nam sem viverra.</string>
 </resources>
