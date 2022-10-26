@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.Gigs.AddNewGigActivity">
+
+  <ScrollView
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_marginStart="8dp"
+      android:layout_marginEnd="8dp"
+      android:layout_marginBottom="32dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+      <TextView
+          android:id="@+id/textView8"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="Add New pet" />
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="What services can you provide " />
+
+        <CheckBox
+            android:id="@+id/checkBoxWalking"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Walking" />
+
+        <CheckBox
+            android:id="@+id/checkBoxPetSitting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pet Sitting" />
+
+        <CheckBox
+            android:id="@+id/checkBoxGrooming"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Grooming" />
+
+        <CheckBox
+            android:id="@+id/checkBoxEmergencyTransport"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Emergency Transport" />
+
+        <CheckBox
+            android:id="@+id/checkBoxTraining"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Training" />
+      </LinearLayout>
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="I can take care of" />
+
+        <CheckBox
+            android:id="@+id/checkBoxCat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cat" />
+
+        <CheckBox
+            android:id="@+id/checkBoxBird"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bird" />
+
+        <CheckBox
+            android:id="@+id/checkBoxOther"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Other" />
+
+        <CheckBox
+            android:id="@+id/checkBoxDog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Dog" />
+      </LinearLayout>
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Maximum number of pets" />
+
+        <EditText
+            android:id="@+id/editTextNumberOfPets"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Number of pets"
+            android:inputType="number"
+            android:minHeight="48dp" />
+
+      </LinearLayout>
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Size of pets" />
+
+        <Spinner
+            android:id="@+id/spinnerPetSize"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/select_pet_breed"
+            android:entries="@array/pet_sizes"
+            android:minHeight="48dp" />
+      </LinearLayout>
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Maximum number of days?" />
+
+        <EditText
+            android:id="@+id/editTextNumberOfDays"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Number Of Days"
+            android:inputType="number" />
+
+      </LinearLayout>
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="How far would you travel to visit?" />
+
+        <Spinner
+            android:id="@+id/spinnerTravelDistance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/select_pet_breed"
+            android:entries="@array/traveling_distance"
+            android:minHeight="48dp" />
+      </LinearLayout>
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Service Charge" />
+
+        <EditText
+            android:id="@+id/editTextPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Price in LKR"
+            android:inputType="number" />
+
+      </LinearLayout>
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Your location" />
+
+        <Spinner
+            android:id="@+id/spinnerLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/select_pet_breed"
+            android:entries="@array/gig_posting_locations"
+            android:minHeight="48dp" />
+      </LinearLayout>
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textViewExperience"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tell us about you experience" />
+
+        <EditText
+            android:id="@+id/editTextDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="Enter Description"
+            android:inputType="textMultiLine"
+            android:lines="5" />
+
+        <Button
+            android:id="@+id/btnAddGig"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Gig" />
+
+
+      </LinearLayout>
+
+    </LinearLayout>
+  </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

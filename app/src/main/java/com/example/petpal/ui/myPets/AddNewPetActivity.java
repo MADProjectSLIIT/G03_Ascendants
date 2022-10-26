@@ -58,7 +58,7 @@ public class AddNewPetActivity extends AppCompatActivity {
 
     private void addNewPet(){
         FirebaseUser user = mAuth.getCurrentUser();
-        dbRef= FirebaseDatabase.getInstance("https://petpal-707f9-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("Pets");
+        dbRef= FirebaseDatabase.getInstance("https://petpal-707f9-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("User Data").child(user.getUid()).child("Pets");
 
         String petName= editTextTextPetName.getText().toString();
         String breed = spinnerBreed.getSelectedItem().toString();
@@ -99,7 +99,7 @@ public class AddNewPetActivity extends AppCompatActivity {
             Toast.makeText(AddNewPetActivity.this, "Please Select a size range", Toast.LENGTH_SHORT).show();
         }else{
             pet = new Pet(petName,petType,breed,size);
-            dbRef.child(user.getUid()).push().setValue(pet);
+            dbRef.push().setValue(pet);
         }
     }
 }
