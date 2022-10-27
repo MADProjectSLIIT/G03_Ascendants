@@ -13,13 +13,14 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.petpal.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 
@@ -29,7 +30,7 @@ public class MyGigsActivity extends AppCompatActivity {
     private ProfileGigAdapter adapter;
 
     private FirebaseAuth mAuth;
-    private DatabaseReference dbRef;
+
     private static final String TAG = "MyGigsActivity";
 
     @Override
@@ -39,7 +40,7 @@ public class MyGigsActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        dbRef= FirebaseDatabase.getInstance("https://petpal-707f9-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Gigs");
+
         btnAddGigs=findViewById(R.id.btnAddGigs);
         RecyclerViewGigs = findViewById(R.id.RecyclerViewGigs);
 
@@ -59,31 +60,57 @@ public class MyGigsActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
-
         ArrayList<Gigs> gigs=new ArrayList<>();
-        dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot gigSnap:dataSnapshot.getChildren()) {
-                    Gigs g = new Gigs();
-//                    Toast.makeText(MyGigsActivity.this, gigSnap.child("title").getValue().toString(), Toast.LENGTH_SHORT).show();
-                    g.setTitle(gigSnap.child("title").getValue().toString());
-                    gigs.add(g);
-                }
-                adapter.setGigs(gigs);
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                  Log.w(TAG, "loadPost:onCancelled", error.toException());
-            }
-        });
-//        Log.d(TAG, "onStart: This ran");
-//        Gigs g = new Gigs();
-//        g.setTitle("what");
-//        gigs.add(g);
-//        adapter.setGigs(gigs);
+
+        //for firebase store
+
+        db.collection("Gigs").whereEqualTo("UserId",user.getUid())
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                Log.d(TAG, document.getId() + " => " + document.getData());
+                                //TODO set all data
+                                Gigs g = new Gigs();
+                                g.setTitle(document.getString("title"));
+                                gigs.add(g);
+                            }
+                            adapter.setGigs(gigs);
+                        } else {
+                            Log.w(TAG, "Error getting documents.", task.getException());
+                        }
+                    }
+                });
+
+
+
+
+
+//        //this is for realtime database
+//
+//        dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                for (DataSnapshot gigSnap:dataSnapshot.getChildren()) {
+//                    Gigs g = new Gigs();
+////                    Toast.makeText(MyGigsActivity.this, gigSnap.child("title").getValue().toString(), Toast.LENGTH_SHORT).show();
+//                    g.setTitle(gigSnap.child("title").getValue().toString());
+//                    gigs.add(g);
+//                }
+//                adapter.setGigs(gigs);
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//                  Log.w(TAG, "loadPost:onCancelled", error.toException());
+//            }
+//        });
+
 
     }
 }
