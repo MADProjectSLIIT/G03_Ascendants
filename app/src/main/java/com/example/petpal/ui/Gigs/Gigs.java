@@ -5,6 +5,7 @@ import java.util.Arrays;
 
 public class Gigs {
     private String UserId;
+    private String title;
     private ArrayList<String> service;
     private ArrayList<String> typeOfPet;
     private int noOfPets;
@@ -15,8 +16,10 @@ public class Gigs {
     private String location;
     private String description;
 
-    public Gigs(String userId, ArrayList<String> service, ArrayList<String> typeOfPet, int noOfPets, String size, int noOfDays, String travelDistance, int charge, String location, String description) {
+
+    public Gigs(String userId, String title, ArrayList<String> service, ArrayList<String> typeOfPet, int noOfPets, String size, int noOfDays, String travelDistance, int charge, String location, String description) {
         UserId = userId;
+        this.title = title;
         this.service = service;
         this.typeOfPet = typeOfPet;
         this.noOfPets = noOfPets;
@@ -26,6 +29,18 @@ public class Gigs {
         this.charge = charge;
         this.location = location;
         this.description = description;
+    }
+
+    public Gigs() {
+
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getUserId() {

@@ -1,6 +1,8 @@
 package com.example.petpal.ui.Gigs;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -23,7 +25,7 @@ public class AddNewGigActivity extends AppCompatActivity {
     private DatabaseReference dbRef;
     private CheckBox checkBoxPetSitting,checkBoxWalking,checkBoxTraining,checkBoxGrooming,checkBoxEmergencyTransport;
     private CheckBox checkBoxCat,checkBoxBird,checkBoxOther,checkBoxDog;
-    private EditText editTextNumberOfPets,editTextNumberOfDays,editTextPrice,editTextDescription;
+    private EditText editTextNumberOfPets,editTextNumberOfDays,editTextPrice,editTextDescription,editTextTitle;
     private  Spinner spinnerPetSize,spinnerTravelDistance,spinnerLocation;
     private Button btnAddGig;
 
@@ -58,10 +60,12 @@ public class AddNewGigActivity extends AppCompatActivity {
         checkBoxOther=findViewById(R.id.checkBoxOther);
         checkBoxDog=findViewById(R.id.checkBoxDog);
 
+        editTextTitle= findViewById(R.id.editTextTitle);
         editTextNumberOfPets=findViewById(R.id.editTextNumberOfPets);
         editTextNumberOfDays=findViewById(R.id.editTextNumberOfDays);
         editTextPrice=findViewById(R.id.editTextPrice);
         editTextDescription=findViewById(R.id.editTextDescription);
+
 
         spinnerPetSize=findViewById(R.id.spinnerPetSize);
         spinnerTravelDistance=findViewById(R.id.spinnerTravelDistance);
@@ -109,7 +113,7 @@ public class AddNewGigActivity extends AppCompatActivity {
             typeOfPet.add(checkBoxDog.getText().toString());
         }
 
-
+        String title = editTextTitle.getText().toString();
          int noOfPets = Integer.parseInt(editTextNumberOfPets.getText().toString());
          String size = spinnerPetSize.getSelectedItem().toString();
          int noOfDays = Integer.parseInt(editTextNumberOfDays.getText().toString());
@@ -122,7 +126,8 @@ public class AddNewGigActivity extends AppCompatActivity {
          //TODO improve this to give specific errors
 
 
-        Gigs newGig = new Gigs(user.getUid(),service,typeOfPet,noOfPets,size,noOfDays,travelDistance,charge,location,description);
+        Gigs newGig = new Gigs(user.getUid(),title,service,typeOfPet,noOfPets,size,noOfDays,travelDistance,charge,location,description);
         dbRef.push().setValue(newGig);
+        startActivity(new Intent(AddNewGigActivity.this,MyGigsActivity.class));
     }
 }
