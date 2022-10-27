@@ -15,13 +15,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.petpal.R;
+import com.example.petpal.ui.Gigs.Gigs;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 
@@ -31,7 +32,7 @@ public class MyPetsActivity extends AppCompatActivity {
     private RecyclerView petsRecyclerView;
     private PetRecViewAdapter adapter;
 
-    private DatabaseReference dbRef;
+
     private static final String TAG = "MyPetsActivity";
 
 
@@ -40,8 +41,8 @@ public class MyPetsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_pets);
 
-        FirebaseUser user =  FirebaseAuth.getInstance().getCurrentUser();
-        dbRef=FirebaseDatabase.getInstance("https://petpal-707f9-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("User Data").child(user.getUid()).child("Pets");
+
+//        dbRef=FirebaseDatabase.getInstance("https://petpal-707f9-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("User Data").child(user.getUid()).child("Pets");
         btnAddPet= findViewById(R.id.btnAddPet);
         petsRecyclerView=findViewById(R.id.petsRecyclerView);
 
@@ -66,21 +67,42 @@ public class MyPetsActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         ArrayList<Pet> pets = new ArrayList<>();
-        dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot petSnap: dataSnapshot.getChildren()) {
-                    Pet p = new Pet();
-                    p.setName(petSnap.child("name").getValue().toString());
-                    pets.add(p);
-                }
-                adapter.setPets(pets);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
-            }
-        });
+//        dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                for (DataSnapshot petSnap: dataSnapshot.getChildren()) {
+//                    Pet p = new Pet();
+//                    p.setName(petSnap.child("name").getValue().toString());
+//                    pets.add(p);
+//                }
+//                adapter.setPets(pets);
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//                Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
+//            }
+//        });
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        FirebaseUser user =  FirebaseAuth.getInstance().getCurrentUser();
+        db.collection("Users").document(user.getUid()).collection("Pets")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                Log.d(TAG, document.getId() + " => " + document.getData());
+                                //TODO set all data
+                                Pet p = new Pet();
+                                p.setName(document.getString("petName"));
+                                pets.add(p);
+                            }
+                            adapter.setPets(pets);
+                        } else {
+                            Log.w(TAG, "Error getting documents.", task.getException());
+                        }
+                    }
+                });
     }
 }

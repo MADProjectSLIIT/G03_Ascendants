@@ -1,10 +1,12 @@
 package com.example.petpal.ui.myPets;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,15 +17,27 @@ import android.widget.Toast;
 import com.example.petpal.LoginActivity;
 import com.example.petpal.MainActivity;
 import com.example.petpal.R;
+import com.example.petpal.ui.Gigs.AddNewGigActivity;
+import com.example.petpal.ui.Gigs.MyGigsActivity;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class AddNewPetActivity extends AppCompatActivity {
+    private static final String TAG = "AddNewPetActivity";
 
     private FirebaseAuth mAuth;
-    private DatabaseReference dbRef;
+
+    private FirebaseFirestore db;
+
+
     private EditText editTextTextPetName;
     private RadioGroup rgTypeOfPet;
     private Spinner spinnerBreed,spinnerPetSize;
@@ -48,6 +62,8 @@ public class AddNewPetActivity extends AppCompatActivity {
     }
 
     private void init(){
+        db  = FirebaseFirestore.getInstance();
+
         mAuth = FirebaseAuth.getInstance();
         editTextTextPetName=findViewById(R.id.editTextTextPetName);
         rgTypeOfPet=findViewById(R.id.rgTypeOfPet);
@@ -55,10 +71,53 @@ public class AddNewPetActivity extends AppCompatActivity {
         spinnerPetSize=findViewById(R.id.spinnerPetSize);
         btnAddPet=findViewById(R.id.btnAddPet);
     }
+    private boolean validate(){
+        String petName= editTextTextPetName.getText().toString();
+        String breed = spinnerBreed.getSelectedItem().toString();
+        String size = spinnerPetSize.getSelectedItem().toString();
+        String petType="";
+        switch (rgTypeOfPet.getCheckedRadioButtonId()){
+            case R.id.rbDog:
+                petType="Dog";
+                break;
+            case R.id.rbCat:
+                petType="Cat";
+                break;
+            case R.id.rbBird:
+                petType="Bird";
+                break;
+            case R.id.rbRabbit:
+                petType="Rabbit";
+                break;
+            case R.id.rbOther:
+                petType="Other";
+                break;
+            default:
+                petType="Unknown";
+                break;
+        }
+
+
+        if(TextUtils.isEmpty(petName)){
+            Toast.makeText(AddNewPetActivity.this, "Please Enter Pet Name", Toast.LENGTH_SHORT).show();
+            return false;
+        }else if(petType=="Unknown"){
+            Toast.makeText(AddNewPetActivity.this, "Please Enter Pet Type", Toast.LENGTH_SHORT).show();
+            return false;
+        }else if(TextUtils.isEmpty(breed)){
+            Toast.makeText(AddNewPetActivity.this, "Please Select a breed", Toast.LENGTH_SHORT).show();
+            return false;
+        }else if(TextUtils.isEmpty(size)){
+            Toast.makeText(AddNewPetActivity.this, "Please Select a size range", Toast.LENGTH_SHORT).show();
+            return false;
+        }else{
+            return true;
+        }
+    }
 
     private void addNewPet(){
         FirebaseUser user = mAuth.getCurrentUser();
-        dbRef= FirebaseDatabase.getInstance("https://petpal-707f9-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("User Data").child(user.getUid()).child("Pets");
+
 
         String petName= editTextTextPetName.getText().toString();
         String breed = spinnerBreed.getSelectedItem().toString();
@@ -86,20 +145,32 @@ public class AddNewPetActivity extends AppCompatActivity {
         }
 
 
-        if(user!=null){
-//            Toast.makeText(AddNewPetActivity.this, user.getUid(), Toast.LENGTH_SHORT).show();
-        }
-        if(TextUtils.isEmpty(petName)){
-            Toast.makeText(AddNewPetActivity.this, "Please Enter Pet Name", Toast.LENGTH_SHORT).show();
-        }else if(petType=="Unknown"){
-            Toast.makeText(AddNewPetActivity.this, "Please Enter Pet Type", Toast.LENGTH_SHORT).show();
-        }else if(TextUtils.isEmpty(breed)){
-            Toast.makeText(AddNewPetActivity.this, "Please Select a breed", Toast.LENGTH_SHORT).show();
-        }else if(TextUtils.isEmpty(size)){
-            Toast.makeText(AddNewPetActivity.this, "Please Select a size range", Toast.LENGTH_SHORT).show();
-        }else{
-            pet = new Pet(petName,petType,breed,size);
-            dbRef.push().setValue(pet);
-        }
+       if(validate()){
+           Map<String, Object> pets = new HashMap<>();
+           pets.put("petName", petName);
+           pets.put("breed", breed);
+           pets.put("size", size);
+           pets.put("petType", petType);
+
+
+           db.collection("Users").document(user.getUid()).collection("Pets")
+                   .add(pets)
+                   .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                       @Override
+                       public void onSuccess(DocumentReference documentReference) {
+                           Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
+                           startActivity(new Intent(AddNewPetActivity.this, MyPetsActivity.class));
+                       }
+                   })
+                   .addOnFailureListener(new OnFailureListener() {
+
+                       @Override
+                       public void onFailure(@NonNull Exception e) {
+                           Log.w(TAG, "Error adding document", e);
+                       }
+                   });
+       }
     }
+
+
 }
