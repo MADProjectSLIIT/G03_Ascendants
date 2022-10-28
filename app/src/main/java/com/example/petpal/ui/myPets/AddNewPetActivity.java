@@ -2,6 +2,7 @@ package com.example.petpal.ui.myPets;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.Navigation;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,6 +22,9 @@ import com.example.petpal.ui.Gigs.AddNewGigActivity;
 import com.example.petpal.ui.Gigs.MyGigsActivity;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.datepicker.MaterialTextInputPicker;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -38,7 +42,7 @@ public class AddNewPetActivity extends AppCompatActivity {
     private FirebaseFirestore db;
 
 
-    private EditText editTextTextPetName;
+    private TextInputLayout editTextTextPetName;
     private RadioGroup rgTypeOfPet;
     private Spinner spinnerBreed,spinnerPetSize;
     private Button btnAddPet;
@@ -51,6 +55,8 @@ public class AddNewPetActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_new_pet);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         init();
         
         btnAddPet.setOnClickListener(new View.OnClickListener() {
@@ -59,6 +65,13 @@ public class AddNewPetActivity extends AppCompatActivity {
                 addNewPet();
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+//        super.onBackPressed();
+        startActivity(new Intent(AddNewPetActivity.this,MainActivity.class));
+
     }
 
     private void init(){
@@ -72,7 +85,7 @@ public class AddNewPetActivity extends AppCompatActivity {
         btnAddPet=findViewById(R.id.btnAddPet);
     }
     private boolean validate(){
-        String petName= editTextTextPetName.getText().toString();
+        String petName= editTextTextPetName.getEditText().getText().toString();
         String breed = spinnerBreed.getSelectedItem().toString();
         String size = spinnerPetSize.getSelectedItem().toString();
         String petType="";
@@ -119,7 +132,7 @@ public class AddNewPetActivity extends AppCompatActivity {
         FirebaseUser user = mAuth.getCurrentUser();
 
 
-        String petName= editTextTextPetName.getText().toString();
+        String petName= editTextTextPetName.getEditText().getText().toString();
         String breed = spinnerBreed.getSelectedItem().toString();
         String size = spinnerPetSize.getSelectedItem().toString();
         String petType="";

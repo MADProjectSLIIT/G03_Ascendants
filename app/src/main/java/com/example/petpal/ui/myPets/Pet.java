@@ -2,6 +2,7 @@ package com.example.petpal.ui.myPets;
 
 public class Pet {
     private String name,type,breed,size;
+    private String petID;
 
     public Pet() {
     }
@@ -11,6 +12,14 @@ public class Pet {
         this.type = type;
         this.breed = breed;
         this.size = size;
+    }
+
+    public String getPetID() {
+        return petID;
+    }
+
+    public void setPetID(String petID) {
+        this.petID = petID;
     }
 
     public String getName() {

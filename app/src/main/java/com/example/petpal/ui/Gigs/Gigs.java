@@ -6,6 +6,7 @@ import java.util.Arrays;
 public class Gigs {
     private String UserId;
     private String title;
+    private String gigId;
     private ArrayList<String> service;
     private ArrayList<String> typeOfPet;
     private int noOfPets;
@@ -33,6 +34,14 @@ public class Gigs {
 
     public Gigs() {
 
+    }
+
+    public String getGigId() {
+        return gigId;
+    }
+
+    public void setGigId(String gigId) {
+        this.gigId = gigId;
     }
 
     public String getTitle() {

@@ -54,4 +54,5 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="Description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In et faucibus amet condimentum pharetra egestas integer purus. Odio non, integer quis posuere id interdum placerat mauris. Nulla tincidunt sed a blandit placerat. In sem suspendisse ut scelerisque cras nam sem viverra.</string>
 </resources>

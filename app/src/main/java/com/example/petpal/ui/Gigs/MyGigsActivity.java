@@ -64,9 +64,6 @@ public class MyGigsActivity extends AppCompatActivity {
         FirebaseUser user = mAuth.getCurrentUser();
         ArrayList<Gigs> gigs=new ArrayList<>();
 
-
-        //for firebase store
-
         db.collection("Gigs").whereEqualTo("UserId",user.getUid())
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {

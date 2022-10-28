@@ -41,6 +41,7 @@ public class MyPetsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_pets);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 //        dbRef=FirebaseDatabase.getInstance("https://petpal-707f9-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("User Data").child(user.getUid()).child("Pets");
         btnAddPet= findViewById(R.id.btnAddPet);
@@ -96,6 +97,7 @@ public class MyPetsActivity extends AppCompatActivity {
                                 //TODO set all data
                                 Pet p = new Pet();
                                 p.setName(document.getString("petName"));
+                                p.setPetID(document.getId());
                                 pets.add(p);
                             }
                             adapter.setPets(pets);

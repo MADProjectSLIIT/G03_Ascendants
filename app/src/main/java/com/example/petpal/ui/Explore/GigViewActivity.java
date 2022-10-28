@@ -20,7 +20,6 @@ public class GigViewActivity extends AppCompatActivity {
     private String gigId;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
