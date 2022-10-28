@@ -5,13 +5,17 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
-    app:cardElevation="7dp">
+    app:cardElevation="7dp"
+
+    >
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/RelLayout"
         android:layout_width="350dp"
-        android:layout_height="200dp">
+        android:layout_height="200dp"
+        android:layout_centerHorizontal="true"
+        >
 
         <TextView
             android:id="@+id/textViewGigName"
