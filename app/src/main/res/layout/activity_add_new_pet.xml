@@ -23,6 +23,7 @@
             android:layout_marginRight="32dp"
             android:orientation="vertical">
 
+
             <TextView
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
@@ -60,6 +61,34 @@
 <!--                android:hint="Name"-->
 <!--                android:inputType="textPersonName"-->
 <!--                android:minHeight="48dp" />-->
+
+            <!--            <EditText-->
+<!--                android:id="@+id/editTextDate"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:allowClickWhenDisabled="true"-->
+
+<!--                android:ems="10"-->
+
+<!--                android:enabled="false"-->
+
+<!--                android:inputType="date" />-->
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Date of birth"
+
+                android:inputType="date"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextDate"
+                    android:allowClickWhenDisabled="true"
+                    android:enabled="false"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:id="@+id/textView5"
@@ -112,6 +141,24 @@
                     android:text="Other" />
 
             </RadioGroup>
+
+            <TextView
+                android:id="@+id/textView722"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:labelFor="@id/textView3"
+                android:text="Gender" />
+
+            <Spinner
+                android:id="@+id/spinnerGender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/select_pet_breed"
+                android:entries="@array/pet_gender"
+                android:minHeight="48dp"
+
+                />
 
             <TextView
                 android:id="@+id/textView6"

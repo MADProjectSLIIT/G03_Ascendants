@@ -70,6 +70,10 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+
+    <style name="Widget.Material3.Button.TextButton.Icon">
+        <item name="android:textColor">@color/black</item>
+    </style>
     <style name="Theme.PetPal.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="Theme.PetPal.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 

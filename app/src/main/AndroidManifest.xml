@@ -13,10 +13,16 @@
         android:theme="@style/Theme.PetPal"
         tools:targetApi="31">
         <activity
+            android:name=".ui.myPets.EditPetActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".ui.Explore.GigViewActivity"
             android:exported="false"
-            android:parentActivityName=".MainActivity"
-            >
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

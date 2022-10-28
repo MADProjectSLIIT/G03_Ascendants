@@ -109,7 +109,8 @@
                     android:layout_height="54dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/profile_bn" />
+                    app:srcCompat="@drawable/profile_bn"
+                    />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
