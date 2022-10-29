@@ -65,6 +65,11 @@
         <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.Material3.SmallComponent</item>
         <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.Material3.MediumComponent</item>
         <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.Material3.LargeComponent</item>
+
+
+            <item name="android:fontFamily">@font/inter_font</item>
+<!--            <item name="fontFamily">@font/your_font</item>-->
+
     </style>
     <style name="Theme.PetPal.NoActionBar">
         <item name="windowActionBar">false</item>
