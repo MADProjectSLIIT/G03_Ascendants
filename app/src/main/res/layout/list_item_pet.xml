@@ -1,43 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/parent"
-    app:cardElevation="7dp"
-    android:layout_margin="5dp">
+    android:layout_width="wrap_content"
+    android:layout_height="250dp"
+    android:layout_margin="5dp"
+    app:cardElevation="15dp"
+    app:strokeColor="@color/md_theme_light_primary"
+    app:strokeWidth="2dp">
 
 
+    <RelativeLayout
+        android:id="@+id/RelLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
+        <ImageView
+            android:id="@+id/imgPet"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/dog" />
+
+        <TextView
+            android:id="@+id/txtName"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/RelLayout">
-
-            <ImageView
-                android:layout_width="200dp"
-                android:layout_height="220dp"
-                android:id="@+id/imgPet"
-                android:src="@drawable/dog"
-                android:layout_centerHorizontal="true"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Pet Name"
-                android:textStyle="bold"
-                android:textSize="16sp"
-                android:layout_below="@+id/imgPet"
-                android:layout_marginTop="7dp"
-                android:id="@+id/txtName"
-                android:layout_centerHorizontal="true"
-                />
-
+            android:layout_below="@+id/imgPet"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="7dp"
+            android:text="Pet Name"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
 
     </RelativeLayout>
-
 
 
 </com.google.android.material.card.MaterialCardView>

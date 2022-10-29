@@ -133,7 +133,7 @@
           android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView11"
+            android:id="@+id/SitterName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Maximum number of pets" />

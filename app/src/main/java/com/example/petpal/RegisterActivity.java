@@ -93,7 +93,7 @@ public class RegisterActivity extends AppCompatActivity {
                         UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder().setDisplayName(userName).build();
                         user.updateProfile(profileUpdates);
                         Map<String, Object> username = new HashMap<>();
-                        username.put("UserName:",userName);
+                        username.put("UserName",userName);
 
                         FirebaseFirestore db  = FirebaseFirestore.getInstance();
                         db.collection("Users").document(mAuth.getCurrentUser().getUid())

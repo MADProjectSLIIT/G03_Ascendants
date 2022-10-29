@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +19,7 @@ import com.example.petpal.R;
 import com.example.petpal.ui.Gigs.Gigs;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -28,7 +30,7 @@ import java.util.ArrayList;
 
 
 public class MyPetsActivity extends AppCompatActivity {
-    private Button btnAddPet;
+    private ExtendedFloatingActionButton btnAddPet;
     private RecyclerView petsRecyclerView;
     private PetRecViewAdapter adapter;
 
@@ -68,22 +70,6 @@ public class MyPetsActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         ArrayList<Pet> pets = new ArrayList<>();
-//        dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                for (DataSnapshot petSnap: dataSnapshot.getChildren()) {
-//                    Pet p = new Pet();
-//                    p.setName(petSnap.child("name").getValue().toString());
-//                    pets.add(p);
-//                }
-//                adapter.setPets(pets);
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//                Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
-//            }
-//        });
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         FirebaseUser user =  FirebaseAuth.getInstance().getCurrentUser();
         db.collection("Users").document(user.getUid()).collection("Pets")
@@ -99,6 +85,11 @@ public class MyPetsActivity extends AppCompatActivity {
                                 p.setName(document.getString("petName"));
                                 p.setPetID(document.getId());
                                 pets.add(p);
+                            }
+                            if(pets.isEmpty()){
+                                ((ImageView)findViewById(R.id.imageViewNoPetsFound)).setVisibility(View.VISIBLE);
+                            }else{
+                                ((ImageView)findViewById(R.id.imageViewNoPetsFound)).setVisibility(View.GONE);
                             }
                             adapter.setPets(pets);
                         } else {

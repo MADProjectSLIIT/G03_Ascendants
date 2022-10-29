@@ -41,34 +41,35 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
-            <TextView
-                android:id="@+id/textView18"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="TextView"
-                app:layout_constraintEnd_toEndOf="@+id/imageView9"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/imageView9"
-                app:layout_constraintTop_toBottomOf="@+id/imageView8" />
+<!--            <TextView-->
+<!--                android:id="@+id/textView18"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="16dp"-->
+<!--                android:text="TextView"-->
+<!--                app:layout_constraintEnd_toEndOf="@+id/imageView9"-->
+<!--                app:layout_constraintHorizontal_bias="0.0"-->
+<!--                app:layout_constraintStart_toStartOf="@+id/imageView9"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/imageView8" />-->
 
             <ImageView
                 android:id="@+id/imageView9"
                 android:layout_width="match_parent"
                 android:layout_height="140dp"
+                android:layout_marginTop="16dp"
                 android:src="@drawable/cover"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView18"
 
-                />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView8" />
 
             <TextView
                 android:id="@+id/textView20"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:fontFamily="@font/inter_bold"
                 android:text="Select service you need"
                 app:layout_constraintEnd_toEndOf="@+id/horizontalScrollView"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -91,7 +92,7 @@
                     android:orientation="horizontal">
 
                     <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/PetWaking"
+                        android:id="@+id/CardPetWaking"
                         android:layout_width="75dp"
                         android:layout_height="75dp"
                         android:layout_margin="15dp">
@@ -131,7 +132,7 @@
                         android:layout_width="75dp"
                         android:layout_height="75dp"
                         android:layout_margin="15dp"
-                        android:id="@+id/petGoorming"
+                        android:id="@+id/CardpetGoorming"
                         >
 
                         <androidx.constraintlayout.widget.ConstraintLayout
@@ -165,7 +166,9 @@
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
                     </com.google.android.material.card.MaterialCardView>
+
                     <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/CardPetTaxi"
                         android:layout_width="75dp"
                         android:layout_height="75dp"
                         android:layout_margin="15dp">
@@ -201,7 +204,9 @@
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
                     </com.google.android.material.card.MaterialCardView>
+
                     <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/CardPetTrainning"
                         android:layout_width="75dp"
                         android:layout_height="75dp"
                         android:layout_margin="15dp">
@@ -237,7 +242,9 @@
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
                     </com.google.android.material.card.MaterialCardView>
+
                     <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/CardPetSitting"
                         android:layout_width="75dp"
                         android:layout_height="75dp"
                         android:layout_margin="15dp">
@@ -256,7 +263,7 @@
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
-                                app:srcCompat="@drawable/pet_vet_icon" />
+                                app:srcCompat="@drawable/pet_sitting" />
 
                             <TextView
                                 android:id="@+id/textViewh5"
@@ -264,7 +271,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="8dp"
                                 android:gravity="center"
-                                android:text="Vet"
+                                android:text="Pet Sitting"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
@@ -279,16 +286,28 @@
             </HorizontalScrollView>
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/RVNereColombo"
                 android:layout_width="350dp"
-                android:layout_height="75dp"
-                android:layout_marginTop="108dp"
-                android:orientation="horizontal"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView">
+                app:layout_constraintTop_toBottomOf="@+id/textView">
 
             </androidx.recyclerview.widget.RecyclerView>
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/inter_bold"
+                android:text="Pet Sitters Nere Colombo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

@@ -117,7 +117,9 @@
             android:id="@+id/tvLoginHere"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Login here" />
+            android:text="Login here"
+            android:textColor="@color/md_theme_light_primary"
+            />
 
 
     </LinearLayout>
