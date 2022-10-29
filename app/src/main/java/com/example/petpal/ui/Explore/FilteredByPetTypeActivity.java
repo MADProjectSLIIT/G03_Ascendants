@@ -1,67 +1,54 @@
 package com.example.petpal.ui.Explore;
 
-import androidx.lifecycle.ViewModelProvider;
-
-import android.content.Intent;
-import android.os.Bundle;
-
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.petpal.R;
 import com.example.petpal.ui.Gigs.Gigs;
-import com.example.petpal.ui.Gigs.ProfileGigAdapter;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 
-public class ExploreFragment extends Fragment {
-    private static final String TAG = "ExploreFragment";
+public class FilteredByPetTypeActivity extends AppCompatActivity {
+    private static final String TAG = "FilteredByServiceActiv";
+    private  String type;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(com.example.petpal.R.layout.activity_filtered_by_pet_type);
+        Intent intent = getIntent();
+        type = intent.getStringExtra("PetType");
+        if(!TextUtils.isEmpty(type)){
+            ((TextView)findViewById(R.id.textViewSort12)).setText("Sorted By : "+type);
+            loadData();
+        }
 
-    private ExploreViewModel mViewModel;
-    RecyclerView RecyclerViewGigs;
-
-    public static ExploreFragment newInstance() {
-        return new ExploreFragment();
     }
 
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_explore, container, false);
+    private void loadData() {
 
-
-
-
-        (view.findViewById(R.id.buttonSelettPet)).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getContext(),SelectPetActivity.class));
-            }
-        });
-
-        GigRecViewAdapter adapter= new GigRecViewAdapter(getContext());
-        RecyclerViewGigs= view.findViewById(R.id.recylerViewGigs);
+        GigRecViewAdapter adapter= new GigRecViewAdapter(FilteredByPetTypeActivity.this);
+        RecyclerView RecyclerViewGigs= findViewById(R.id.recyclerViewRT);
         RecyclerViewGigs.setAdapter(adapter);
-        RecyclerViewGigs.setLayoutManager(new LinearLayoutManager(getContext()));
+        RecyclerViewGigs.setLayoutManager(new LinearLayoutManager(FilteredByPetTypeActivity.this));
+
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         ArrayList<Gigs> gigs=new ArrayList<>();
 
-        db.collection("Gigs")
+        db.collection("Gigs").whereArrayContains("typeOfPet",type)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
@@ -82,16 +69,5 @@ public class ExploreFragment extends Fragment {
                         }
                     }
                 });
-
-
-
-
-
-
-
-        return view;
     }
-
-
-
 }

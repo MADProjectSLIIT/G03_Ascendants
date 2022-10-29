@@ -16,19 +16,11 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/editTextTextPersonName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Name" />
-
             <Button
-                android:id="@+id/button3"
-                android:layout_width="match_parent"
+                android:id="@+id/buttonSelettPet"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:text="Search" />
+                android:text="Select Pet" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recylerViewGigs"

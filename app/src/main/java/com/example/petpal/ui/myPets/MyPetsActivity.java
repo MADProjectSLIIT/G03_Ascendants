@@ -84,6 +84,7 @@ public class MyPetsActivity extends AppCompatActivity {
                                 Pet p = new Pet();
                                 p.setName(document.getString("petName"));
                                 p.setPetID(document.getId());
+                                p.setType(document.getString("petType"));
                                 pets.add(p);
                             }
                             if(pets.isEmpty()){
