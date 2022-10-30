@@ -4,13 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:visibility="visible"
     tools:context=".ui.Gigs.AddNewGigActivity">
 
   <ScrollView
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      android:layout_marginStart="8dp"
-      android:layout_marginEnd="8dp"
       android:layout_marginBottom="32dp"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
@@ -22,27 +21,29 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-      <TextView
-          android:id="@+id/textView8"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:text="Add New Gig" />
       <LinearLayout
           android:layout_width="match_parent"
           android:layout_height="match_parent"
+          android:background="#BAFFFFFF"
           android:orientation="vertical">
+
 
         <TextView
             android:id="@+id/textView123"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Gig Title" />
-
+            android:layout_width="405dp"
+            android:layout_height="42dp"
+            android:background="#E4E4E4"
+            android:fontFamily="@font/inter_bold"
+            android:paddingLeft="20dp"
+            android:paddingTop="5dp"
+            android:text="Gig Title"
+            android:textColor="#FF5722"
+            android:textSize="24sp" />
 
         <EditText
             android:id="@+id/editTextTitle"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="1dp"
             android:hint="Tile"
             android:minHeight="48dp" />
 
@@ -54,41 +55,55 @@
           android:layout_height="match_parent"
           android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="What services can you provide " />
-
         <CheckBox
             android:id="@+id/checkBoxWalking"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Walking" />
+            android:layout_marginLeft="20dp"
+            android:fontFamily="@font/inter_semibold"
+            android:text="Walking"
+            android:textColor="#515151"
+            android:textSize="16sp" />
 
         <CheckBox
             android:id="@+id/checkBoxPetSitting"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Pet Sitting" />
+            android:layout_marginLeft="20dp"
+            android:fontFamily="@font/inter_semibold"
+            android:text="Pet Sitting"
+            android:textColor="#515151"
+            android:textSize="16sp" />
 
         <CheckBox
             android:id="@+id/checkBoxGrooming"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Grooming" />
+            android:layout_marginLeft="20dp"
+            android:fontFamily="@font/inter_semibold"
+            android:text="Grooming"
+            android:textColor="#515151"
+            android:textSize="16sp" />
 
         <CheckBox
             android:id="@+id/checkBoxEmergencyTransport"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Emergency Transport" />
+            android:layout_marginLeft="20dp"
+            android:fontFamily="@font/inter_semibold"
+            android:text="Emergency Transport"
+            android:textColor="#515151"
+            android:textSize="16sp" />
 
         <CheckBox
             android:id="@+id/checkBoxTraining"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Training" />
+            android:layout_marginLeft="20dp"
+            android:fontFamily="@font/inter_semibold"
+            android:text="Training"
+            android:textColor="#515151"
+            android:textSize="16sp" />
       </LinearLayout>
 
       <LinearLayout
@@ -99,32 +114,54 @@
         <TextView
             android:id="@+id/textView10"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="I can take care of" />
+            android:layout_height="38dp"
+            android:background="#E3E3E3"
+            android:fontFamily="@font/inter_bold"
+            android:paddingLeft="20dp"
+            android:paddingTop="5dp"
+            android:text="I can take care of"
+            android:textColor="#FF5722"
+            android:textSize="20sp" />
 
         <CheckBox
             android:id="@+id/checkBoxCat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Cat" />
+            android:layout_marginLeft="20dp"
+            android:fontFamily="@font/inter_semibold"
+            android:text="Cat"
+            android:textColor="#515151"
+            android:textSize="16sp" />
 
         <CheckBox
             android:id="@+id/checkBoxBird"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Bird" />
+            android:layout_marginLeft="20dp"
+            android:fontFamily="@font/inter_semibold"
+            android:text="Bird"
+            android:textColor="#515151"
+            android:textSize="16sp" />
 
         <CheckBox
             android:id="@+id/checkBoxOther"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Other" />
+            android:layout_marginLeft="20dp"
+            android:fontFamily="@font/inter_semibold"
+            android:text="Other"
+            android:textColor="#515151"
+            android:textSize="16sp" />
 
         <CheckBox
             android:id="@+id/checkBoxDog"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Dog" />
+            android:layout_marginLeft="20dp"
+            android:fontFamily="@font/inter_semibold"
+            android:text="Dog"
+            android:textColor="#515151"
+            android:textSize="16sp" />
       </LinearLayout>
 
       <LinearLayout
@@ -135,14 +172,26 @@
         <TextView
             android:id="@+id/textView11"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Maximum number of pets" />
+            android:layout_height="40dp"
+            android:background="#E2E2E2"
+            android:fontFamily="@font/inter_bold"
+            android:paddingLeft="20dp"
+
+            android:paddingTop="5dp"
+            android:text="Maximum number of pets"
+            android:textColor="#FF5722"
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/editTextNumberOfPets"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="30dp"
             android:ems="10"
+            android:fontFamily="@font/inter_semibold"
             android:hint="Number of pets"
             android:inputType="number"
             android:minHeight="48dp" />
@@ -157,16 +206,29 @@
         <TextView
             android:id="@+id/textView12"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Size of pets" />
+            android:layout_height="37dp"
+            android:background="#E1E1E1"
+            android:fontFamily="@font/inter_bold"
+            android:paddingLeft="20dp"
+            android:paddingTop="5dp"
+            android:text="Size of pets"
+            android:textColor="#FF5722"
+            android:textSize="20sp" />
 
         <Spinner
             android:id="@+id/spinnerPetSize"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:contentDescription="@string/select_pet_breed"
             android:entries="@array/pet_sizes"
-            android:minHeight="48dp" />
+            android:minHeight="48dp"
+
+            />
       </LinearLayout>
 
       <LinearLayout
@@ -178,13 +240,25 @@
             android:id="@+id/textView13"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Maximum number of days?" />
+            android:background="#E0E0E0"
+            android:fontFamily="@font/inter_bold"
+            android:paddingLeft="20dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:text="Maximum number of days?"
+            android:textColor="#FF5722"
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/editTextNumberOfDays"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="30dp"
             android:ems="10"
+            android:fontFamily="@font/inter_semibold"
             android:hint="Number Of Days"
             android:inputType="number" />
 
@@ -199,12 +273,23 @@
             android:id="@+id/textView14"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="How far would you travel to visit?" />
+            android:background="#DFDFDF"
+            android:fontFamily="@font/inter_bold"
+            android:paddingLeft="20dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:text="How far would you travel to visit?"
+            android:textColor="#FF5722"
+            android:textSize="20sp" />
 
         <Spinner
             android:id="@+id/spinnerTravelDistance"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:contentDescription="@string/select_pet_breed"
             android:entries="@array/traveling_distance"
             android:minHeight="48dp" />
@@ -219,13 +304,25 @@
             android:id="@+id/textView15"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Service Charge" />
+            android:background="#DEDEDE"
+            android:fontFamily="@font/inter_bold"
+            android:paddingLeft="20dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:text="Service Charge"
+            android:textColor="#FF5722"
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/editTextPrice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="30dp"
             android:ems="10"
+            android:fontFamily="@font/inter_semibold"
             android:hint="Price in LKR"
             android:inputType="number" />
 
@@ -240,14 +337,26 @@
             android:id="@+id/textView17"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Your location" />
+            android:background="#DDDDDD"
+            android:fontFamily="@font/inter_bold"
+            android:paddingLeft="20dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:text="Your location"
+            android:textColor="#FF5722"
+            android:textSize="20sp" />
 
         <Spinner
             android:id="@+id/spinnerLocation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:contentDescription="@string/select_pet_breed"
             android:entries="@array/gig_posting_locations"
+
             android:minHeight="48dp" />
       </LinearLayout>
 
@@ -259,14 +368,25 @@
         <TextView
             android:id="@+id/textViewExperience"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Tell us about you experience" />
+            android:layout_height="40dp"
+            android:background="#DCDCDC"
+            android:fontFamily="@font/inter_bold"
+            android:paddingLeft="20dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:text="Tell us about you experience"
+            android:textColor="#FF5722"
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/editTextDescription"
-            android:layout_width="match_parent"
+            android:layout_width="368dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"
             android:ems="10"
+            android:fontFamily="@font/inter_semibold"
             android:gravity="start|top"
             android:hint="Enter Description"
             android:inputType="textMultiLine"
@@ -276,6 +396,7 @@
             android:id="@+id/btnAddGig"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_semibold"
             android:text="Add Gig" />
 
 
