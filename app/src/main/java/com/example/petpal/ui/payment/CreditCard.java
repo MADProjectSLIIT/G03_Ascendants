@@ -2,11 +2,21 @@ package com.example.petpal.ui.payment;
 
 public class CreditCard {
     String textViewCardNumber,textViewexpirecvc,textViewexpireDate;
+    String cardId;
 
     public CreditCard(String textViewCardNumber, String textViewexpirecvc, String textViewexpireDate) {
         this.textViewCardNumber = textViewCardNumber;
         this.textViewexpirecvc = textViewexpirecvc;
         this.textViewexpireDate = textViewexpireDate;
+
+    }
+
+    public String getCardId() {
+        return cardId;
+    }
+
+    public void setCardId(String cardId) {
+        this.cardId = cardId;
     }
 
     public CreditCard() {

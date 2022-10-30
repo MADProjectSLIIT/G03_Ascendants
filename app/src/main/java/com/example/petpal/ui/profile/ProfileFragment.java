@@ -35,7 +35,6 @@ public class ProfileFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
         btnLogOut = view.findViewById(R.id.btnLogOut);
         cardMyPets = view.findViewById(R.id.cardMyPets);
@@ -45,6 +44,7 @@ public class ProfileFragment extends Fragment {
         mAuth = FirebaseAuth.getInstance();
         ((TextView)view.findViewById(R.id.textViewUserName)).setText(mAuth.getCurrentUser().getDisplayName());
 
+        getActivity().setTitle("Profile");
 
         cardMyPets.setOnClickListener(new View.OnClickListener() {
             @Override

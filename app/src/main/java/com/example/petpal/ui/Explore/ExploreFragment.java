@@ -44,7 +44,7 @@ public class ExploreFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_explore, container, false);
 
 
-
+        getActivity().setTitle("Explore");
 
         (view.findViewById(R.id.buttonSelettPet)).setOnClickListener(new View.OnClickListener() {
             @Override

@@ -5,54 +5,60 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.example.petpal.R;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AddNewGigActivity extends AppCompatActivity {
-
-    private static final String TAG = "AddNewGigActivity";
-
+public class UpdateGigActivity extends AppCompatActivity {
+    private static final String TAG = "UpdateGigActivity";
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
     private CheckBox checkBoxPetSitting,checkBoxWalking,checkBoxTraining,checkBoxGrooming,checkBoxEmergencyTransport;
     private CheckBox checkBoxCat,checkBoxBird,checkBoxOther,checkBoxDog;
     private EditText editTextNumberOfPets,editTextNumberOfDays,editTextPrice,editTextDescription,editTextTitle;
-    private  Spinner spinnerPetSize,spinnerTravelDistance,spinnerLocation;
+    private Spinner spinnerPetSize,spinnerTravelDistance,spinnerLocation;
     private Button btnAddGig;
+    private String gigId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_new_gig);
+        setContentView(com.example.petpal.R.layout.activity_update_gig);
+
+        Intent intent = getIntent();
+        gigId = intent.getStringExtra("GigID");
 
         init();
-
+        loadData();
         btnAddGig.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 submit();
             }
         });
-    }
 
+    }
 
     private void init(){
 
@@ -83,7 +89,6 @@ public class AddNewGigActivity extends AppCompatActivity {
 
         btnAddGig=findViewById(R.id.btnAddGig);
     }
-
     private void submit(){
         FirebaseUser user = mAuth.getCurrentUser();
 
@@ -124,39 +129,40 @@ public class AddNewGigActivity extends AppCompatActivity {
         }
 
         String title = editTextTitle.getText().toString();
-         int noOfPets = Integer.parseInt(editTextNumberOfPets.getText().toString());
-         String size = spinnerPetSize.getSelectedItem().toString();
-         int noOfDays = Integer.parseInt(editTextNumberOfDays.getText().toString());
-         String travelDistance = spinnerTravelDistance.getSelectedItem().toString();
-         int charge  = Integer.parseInt(editTextPrice.getText().toString());
-         String location = spinnerLocation.getSelectedItem().toString();
-         String description=editTextDescription.getText().toString();
+        int noOfPets = Integer.parseInt(editTextNumberOfPets.getText().toString());
+//        String size = spinnerPetSize.getSelectedItem().toString();
+//        int noOfDays = Integer.parseInt(editTextNumberOfDays.getText().toString());
+//        String travelDistance = spinnerTravelDistance.getSelectedItem().toString();
+//        int charge  = Integer.parseInt(editTextPrice.getText().toString());
+//        String location = spinnerLocation.getSelectedItem().toString();
+//        String description=editTextDescription.getText().toString();
 
 
-         //TODO improve this to give specific errors
+        //TODO improve this to give specific errors
 
 
         Map<String, Object> gigs = new HashMap<>();
-        gigs.put("UserId", user.getUid());
+//        gigs.put("UserId", user.getUid());
         gigs.put("title", title);
-        gigs.put("service", service);
-        gigs.put("typeOfPet", typeOfPet);
+//        gigs.put("service", service);
+//        gigs.put("typeOfPet", typeOfPet);
         gigs.put("noOfPets", noOfPets);
-        gigs.put("size", size);
-        gigs.put("noOfDays", noOfDays);
-        gigs.put("travelDistance", travelDistance);
-        gigs.put("charge", charge);
-        gigs.put("location", location);
-        gigs.put("description", description);
+//        gigs.put("size", size);
+//        gigs.put("noOfDays", noOfDays);
+//        gigs.put("travelDistance", travelDistance);
+//        gigs.put("charge", charge);
+//        gigs.put("location", location);
+//        gigs.put("description", description);
 
+//
 
-        db.collection("Gigs")
-                .add(gigs)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+        db.collection("Gigs").document(gigId)
+                .update(gigs)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
-                        startActivity(new Intent(AddNewGigActivity.this,MyGigsActivity.class));
+                    public void onSuccess(Void unused) {
+
+                        startActivity(new Intent(UpdateGigActivity.this, MyGigsActivity.class));
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -169,8 +175,28 @@ public class AddNewGigActivity extends AppCompatActivity {
 
 
 
-//        Gigs newGig = new Gigs(user.getUid(),title,service,typeOfPet,noOfPets,size,noOfDays,travelDistance,charge,location,description);
-//        dbRef.push().setValue(newGig);
-//        startActivity(new Intent(AddNewGigActivity.this,MyGigsActivity.class));
+
     }
+    private void loadData(){
+        db.collection("Gigs").document(gigId)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if (task.isSuccessful()){
+                            DocumentSnapshot document = task.getResult();
+                            editTextTitle.setText(document.getString("title"));
+                            editTextNumberOfPets.setText(document.getLong("noOfPets").toString());
+//                            int noOfPets = Integer.parseInt(editTextNumberOfPets.getText().toString());
+//                            String size = spinnerPetSize.getSelectedItem().toString();
+//                            int noOfDays = Integer.parseInt(editTextNumberOfDays.getText().toString());
+//                            String travelDistance = spinnerTravelDistance.getSelectedItem().toString();
+//                            int charge  = Integer.parseInt(editTextPrice.getText().toString());
+//                            String location = spinnerLocation.getSelectedItem().toString();
+//                            String description=editTextDescription.getText().toString();
+                        }
+                    }
+                });
+    }
+
 }

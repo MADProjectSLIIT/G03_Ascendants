@@ -4,6 +4,9 @@ public class Pet {
     private String name,type,breed,size;
     private String petID;
 
+
+
+
     public Pet() {
     }
 
@@ -49,6 +52,7 @@ public class Pet {
     public String getSize() {
         return size;
     }
+
 
 
 

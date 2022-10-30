@@ -31,6 +31,7 @@ import java.util.ArrayList;
 public class HomeFragment extends Fragment {
     private static final String TAG = "HomeFragment";
 
+
     private FragmentHomeBinding binding;
     RecyclerView RecyclerViewGigs;
 
@@ -43,6 +44,7 @@ public class HomeFragment extends Fragment {
         View root = binding.getRoot();
         RecyclerViewGigs=  root.findViewById(R.id.RVNereColombo);
 
+        getActivity().setTitle("Home");
 
         root.findViewById(R.id.CardPetWaking).setOnClickListener(new View.OnClickListener() {
             @Override

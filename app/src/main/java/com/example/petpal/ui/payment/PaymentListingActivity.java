@@ -66,8 +66,9 @@ public class PaymentListingActivity extends AppCompatActivity {
                                 Log.d(TAG, document.getId() + " => " + document.getData());
                                 CreditCard p = new CreditCard();
                                 p.setTextViewCardNumber(document.getString("cardNo"));
-                                p.setTextViewexpireDate(document.getString("cvc"));
-                                p.setTextViewexpirecvc(document.getString("exDate"));
+                                p.setTextViewexpireDate(document.getString("exDate"));
+                                p.setTextViewexpirecvc(document.getString("cvc"));
+                                p.setCardId(document.getId());
                                 cards.add(p);
                             }
                             adapter.setCards(cards);

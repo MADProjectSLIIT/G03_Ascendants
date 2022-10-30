@@ -75,6 +75,7 @@ public class MyGigsActivity extends AppCompatActivity {
                                 //TODO set all data
                                 Gigs g = new Gigs();
                                 g.setTitle(document.getString("title"));
+                                g.setGigId(document.getId());
                                 gigs.add(g);
                             }
                             adapter.setGigs(gigs);

@@ -6,6 +6,26 @@
     android:layout_height="match_parent"
     tools:context=".RegisterActivity">
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:elevation="10dp"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.25"
+        app:layout_constraintVertical_chainStyle="packed">
+
+        <ImageView
+            android:id="@+id/what"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/icon_with_name" />
+    </androidx.cardview.widget.CardView>
 
     <Button
         android:id="@+id/btnRegister"
@@ -61,7 +81,7 @@
         app:layout_constraintBottom_toTopOf="@+id/edittxtUserName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4"
         app:layout_constraintVertical_bias="0.5"
         app:layout_constraintVertical_chainStyle="packed" />
 
@@ -118,8 +138,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Login here"
-            android:textColor="@color/md_theme_light_primary"
-            />
+            android:textColor="@color/md_theme_light_primary" />
 
 
     </LinearLayout>
